@@ -1,0 +1,236 @@
+:root {
+  --background-color: #1a1a2e;
+  --card-background-color: #162447;
+  --primary-text-color: #e0e0e0;
+  --neon-pink: #f0f;
+  --neon-blue: #0ff;
+  --neon-purple: #9f00ff;
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+#root {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: 2rem;
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue),
+    0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+}
+
+.subtitle {
+  color: var(--primary-text-color);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-label {
+  font-family: var(--font-pixel);
+  font-size: 0.9rem;
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.input-field {
+  background-color: var(--card-background-color);
+  border: 2px solid var(--neon-purple);
+  color: var(--primary-text-color);
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(159, 0, 255, 0.3);
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.input-field::placeholder {
+    color: #6a789e;
+    opacity: 0.7;
+}
+
+.button {
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  color: var(--neon-pink);
+  border: 3px solid var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--neon-pink);
+  color: var(--background-color);
+  box-shadow: 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  border-color: #777;
+  color: #777;
+  box-shadow: none;
+}
+
+.storyboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.scene {
+  width: 100%;
+  max-width: 500px; /* Or adjust as needed */
+  background-color: var(--card-background-color);
+  border: 2px solid var(--neon-purple);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(159, 0, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.image-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6a789e; /* Text color for error message inside container */
+}
+
+.scene-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.narration {
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.loader,
+.image-loader {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-left-color: var(--neon-blue);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  color: #ff4d4d;
+  background-color: #2e1a1a;
+  border: 1px solid #ff4d4d;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.nav-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.scene-counter {
+    font-family: var(--font-pixel);
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+}
+
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
